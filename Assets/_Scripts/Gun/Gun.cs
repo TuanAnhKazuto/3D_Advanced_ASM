@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -13,6 +14,7 @@ public class Gun : MonoBehaviour
     public Camera fpscam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    public GameObject bulletHole;
     private float nextTimeToFire = 0f;
 
     // Start is called before the first frame update
@@ -52,8 +54,13 @@ public class Gun : MonoBehaviour
                 hit.rigidbody.AddForce(hit.normal * -impactForce);
             }
 
+            Quaternion lookRotation = Quaternion.LookRotation(hit.normal);
+            Quaternion _rorate = lookRotation * Quaternion.Euler(0f, 90f, 90f);
+
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
             Destroy(impactGO, 2f);
+            Destroy(hole, 5f);
 
         }
 
