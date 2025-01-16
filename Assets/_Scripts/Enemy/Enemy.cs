@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,8 @@ public class Enemy : MonoBehaviour
     public Vector3 position; // Vị trí ban đầu
     public float maxDistace = 100f; // khoảng cách
 
+    Animation anim;
+
 
     private void Start()
     {
@@ -19,7 +22,8 @@ public class Enemy : MonoBehaviour
         target = player.GetComponent<Transform>();
 
         GameObject plQuest = GameObject.FindWithTag("Player");
-
+        anim = GetComponent<Animation>();
+        anim.Play("Idle");
 
         position = transform.position; // vị trí
 
@@ -35,30 +39,41 @@ public class Enemy : MonoBehaviour
         navMeshAgent.isStopped = false; 
     }
 
-
     private void Update()
     {
         if (target != null)
         {
             var lookPos = target.position - transform.position;
             lookPos.y = 0;
-            var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5);
+            
+            var distance = Vector3.Distance(target.position, transform.position);
+
+            if (distance <= radius)
+            {
+                if (navMeshAgent.isOnNavMesh)
+                {
+                    anim.Play("Run");
+                    var rotation = Quaternion.LookRotation(lookPos);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 5);
+                    navMeshAgent.SetDestination(target.position);
+                }
+
+                if(distance <= 3)
+                {
+                    anim.Play("Attack1");
+                }
+                
+            }
+            else
+            {
+                anim.Play("Idle");
+            }
+
+           
         }
         else
         {
             return;
-        }
-
-        var distance = Vector3.Distance(target.position, transform.position);
-
-        if (distance <= radius)
-        {
-            if (navMeshAgent.isOnNavMesh)
-            {
-                navMeshAgent.SetDestination(target.position);
-            }
-
         }
        
     }
