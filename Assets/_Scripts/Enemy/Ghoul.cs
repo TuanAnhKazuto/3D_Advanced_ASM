@@ -9,12 +9,13 @@ public class Ghoul : EnemyMovement
     private void Start()
     {
         anim = GetComponent<Animation>();
+        currentState = EnemyState.Idle;
     }
 
     public enum EnemyState
     {
         Idle,
-        Move,
+        Run,
         Attack
     }
 
@@ -26,7 +27,7 @@ public class Ghoul : EnemyMovement
         {
             case EnemyState.Idle:
                 break;
-            case EnemyState.Move:
+            case EnemyState.Run:
                 break;
             case EnemyState.Attack:
                 break;
@@ -35,11 +36,28 @@ public class Ghoul : EnemyMovement
         switch (newState)
         {
             case EnemyState.Idle:
-
+                anim.Play("Idle");
+                anim.Stop("Walk");
+                anim.Stop("Run");
+                anim.Stop("Attack1");
+                anim.Stop("Attack2");
+                anim.Stop("Death");
                 break;
-            case EnemyState.Move:
+            case EnemyState.Run:
+                anim.Stop("Idle");
+                anim.Stop("Walk");
+                anim.Play("Run");
+                anim.Stop("Attack1");
+                anim.Stop("Attack2");
+                anim.Stop("Death");
                 break;
             case EnemyState.Attack:
+                anim.Stop("Idle");
+                anim.Stop("Walk");
+                anim.Stop("Run");
+                anim.Play("Attack1");
+                anim.Stop("Attack2");
+                anim.Stop("Death");
                 break;
         }
 
@@ -49,6 +67,19 @@ public class Ghoul : EnemyMovement
     private void Update()
     {
         Move();
+        Attack();
+        Debug.Log(distance);
     }
     
+    private void Attack()
+    {
+        if (distance <= 3f)
+        {
+            ChageState(EnemyState.Attack);
+        }
+        else
+        {
+            ChageState(EnemyState.Run);
+        }
+    }
 }
