@@ -39,7 +39,7 @@ public class Ghoul : EnemyMovement
                 break;
             case EnemyState.Attack1:
                 PlayAnimation("Attack1");
-                speed = 0;
+                speed = 0.2f;
                 navMeshAgent.speed = speed;
                 break;
             case EnemyState.Attack2:
@@ -72,11 +72,12 @@ public class Ghoul : EnemyMovement
 
     private void EnemyBehaviour()
     {
-        if(speed > 0)
+        if (speed > 0)
         {
             ChangeState(EnemyState.Run);
         }
-        else
+
+        if (speed == 0)
         {
             ChangeState(EnemyState.Idle);
         }
