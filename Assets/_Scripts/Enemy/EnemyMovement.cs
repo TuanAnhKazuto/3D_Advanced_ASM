@@ -6,16 +6,15 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [HideInInspector] public Transform target;
-    [HideInInspector] public NavMeshAgent navMeshAgent;
+    [SerializeField] protected Transform target;
+    [SerializeField] protected NavMeshAgent navMeshAgent;
  
     
     public float radius = 10f;  // Phạm vi phát hiện
     [HideInInspector] public Vector3 position; // Vị trí ban đầu
     public float maxDistace = 100f; // khoảng cách
-    protected float distance;
-
-    private void Start()
+    public float distance;
+    protected void RunOnStart()
     {
         GameObject player = GameObject.FindWithTag("Player");
         target = player.GetComponent<Transform>();
@@ -34,9 +33,8 @@ public class EnemyMovement : MonoBehaviour
             navMeshAgent.enabled = true; // Bật NavMeshAgent
             navMeshAgent.Warp(position); // Đặt vị trí ban đầu chính xác
         }
-        
 
-        navMeshAgent.isStopped = false; 
+        navMeshAgent.isStopped = false;
     }
 
     public void Move()
