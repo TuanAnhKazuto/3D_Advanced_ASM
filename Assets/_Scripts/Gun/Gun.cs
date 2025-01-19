@@ -1,0 +1,69 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Mathematics;
+using UnityEngine;
+
+public class Gun : MonoBehaviour
+{
+    public float damage = 10f;
+    public float range = 100f;
+    public float fireRate = 15f;
+    public float fireSpeed = 5f;
+    public float impactForce = 30f;
+
+    public Camera fpscam;
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
+    public GameObject bulletHole;
+    private float nextTimeToFire = 0f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        {
+            nextTimeToFire = Time.time + fireSpeed / fireRate;
+            Shoot();
+
+        }
+        
+    }
+     
+    void Shoot()
+    {
+       
+        muzzleFlash.Play();
+        RaycastHit hit;
+        if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
+
+            if(hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(hit.normal * -impactForce);
+            }
+
+            Quaternion lookRotation = Quaternion.LookRotation(hit.normal);
+            Quaternion _rorate = lookRotation * Quaternion.Euler(0f, 90f, 90f);
+
+            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
+            Destroy(impactGO, 2f);
+            Destroy(hole, 5f);
+
+        }
+
+
+    }
+}
