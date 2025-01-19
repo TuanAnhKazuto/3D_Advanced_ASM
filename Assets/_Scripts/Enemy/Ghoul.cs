@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Ghoul : EnemyMovement
 {
-    Animation anim;
+    private Animation anim;
 
     private void Start()
     {
@@ -21,75 +21,69 @@ public class Ghoul : EnemyMovement
 
     public EnemyState currentState;
 
-    private void ChageState(EnemyState newState)
+    private void ChangeState(EnemyState newState)
     {
-        switch (currentState)
-        {
-            case EnemyState.Idle:
-                break;
-            case EnemyState.Run:
-                break;
-            case EnemyState.Attack1:
-                break;
-            case EnemyState.Attack2:
-                break;
-        }
+        if (currentState == newState) return;
 
         switch (newState)
         {
             case EnemyState.Idle:
-                anim.Play("Idle");
-                anim.Stop("Walk");
-                anim.Stop("Run");
-                anim.Stop("Attack1");
-                anim.Stop("Attack2");
-                anim.Stop("Death");
+                PlayAnimation("Idle");
+                speed = 0;
+                navMeshAgent.speed = speed;
                 break;
             case EnemyState.Run:
-                anim.Stop("Idle");
-                anim.Stop("Walk");
-                anim.Play("Run");
-                anim.Stop("Attack1");
-                anim.Stop("Attack2");
-                anim.Stop("Death");
+                PlayAnimation("Run");
+                speed = originalSpeed;
+                navMeshAgent.speed = speed;
                 break;
             case EnemyState.Attack1:
-                anim.Stop("Idle");
-                anim.Stop("Walk");
-                anim.Stop("Run");
-                anim.Play("Attack1");
-                anim.Stop("Attack2");
-                anim.Stop("Death");
+                PlayAnimation("Attack1");
+                speed = 0;
+                navMeshAgent.speed = speed;
                 break;
             case EnemyState.Attack2:
-                anim.Stop("Idle");
-                anim.Stop("Walk");
-                anim.Stop("Run");
-                anim.Stop("Attack1");
-                anim.Play("Attack2");
-                anim.Stop("Death");
+                PlayAnimation("Attack2");
+                speed = 0;
+                navMeshAgent.speed = speed;
                 break;
         }
 
         currentState = newState;
     }
 
+    private void PlayAnimation(string animationName)
+    {
+        anim.Play(animationName);
+        foreach (AnimationState state in anim)
+        {
+            if (state.name != animationName)
+            {
+                anim.Stop(state.name);
+            }
+        }
+    }
+
     private void Update()
     {
         Move();
-        Attack();
-        Debug.Log(distance);
+        EnemyBehaviour();
     }
 
-    private void Attack()
+    private void EnemyBehaviour()
     {
-        if (distance <= 3f && currentState != EnemyState.Attack2)
+        if(speed > 0)
         {
-            ChageState(EnemyState.Attack1);
+            ChangeState(EnemyState.Run);
         }
         else
         {
-            ChageState(EnemyState.Run);
+            ChangeState(EnemyState.Idle);
+        }
+
+        if (distance <= 3f)
+        {
+            ChangeState(EnemyState.Attack1);
         }
     }
 }

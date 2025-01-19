@@ -20,8 +20,8 @@ namespace Tenkoku.Effects
     private int rtH;
     private float off;
 
-
-    void Start(){
+        [Obsolete]
+        void Start(){
 
         if (material == null){
           material = new Material(blurShader);

@@ -898,7 +898,8 @@ public class Weapon : MonoBehaviour
 		LineRenderer beamLR = beamGO.GetComponent<LineRenderer>();
 		beamLR.material = beamMaterial;
 		beamLR.material.SetColor("_TintColor", beamColor);
-		beamLR.SetWidth(startBeamWidth, endBeamWidth);
+        beamLR.startWidth = startBeamWidth;
+        beamLR.endWidth = endBeamWidth;
 
 		// The number of reflections
 		int reflections = 0;
@@ -999,7 +1000,7 @@ public class Weapon : MonoBehaviour
 		} while (keepReflecting && reflections < maxReflections && reflect && (reflectionMaterial == null || (FindMeshRenderer(hit.collider.gameObject) != null && FindMeshRenderer(hit.collider.gameObject).sharedMaterial == reflectionMaterial)));
 
 		// Set the positions of the vertices of the line renderer beam
-		beamLR.SetVertexCount(reflectionPoints.Count);
+        beamLR.positionCount = reflectionPoints.Count;
 		for (int i = 0; i < reflectionPoints.Count; i++)
 		{
 			beamLR.SetPosition(i, reflectionPoints[i]);
