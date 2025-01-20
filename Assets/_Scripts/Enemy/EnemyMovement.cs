@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public abstract class EnemyMovement : MonoBehaviour
 {
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
@@ -78,4 +78,6 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
     }
+
+    public abstract void Attack();
 }
