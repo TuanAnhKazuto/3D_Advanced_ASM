@@ -15,13 +15,7 @@ public class Gun : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public GameObject bulletHole;
-    private float nextTimeToFire = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float nextTimeToFire = 0f;
 
     // Update is called once per frame
     void Update()
@@ -35,9 +29,8 @@ public class Gun : MonoBehaviour
         
     }
      
-    void Shoot()
+    protected void Shoot()
     {
-       
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range))

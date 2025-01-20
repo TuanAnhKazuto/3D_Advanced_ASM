@@ -4,7 +4,7 @@ public class Ghoul : EnemyMovement
 {
     private Animation anim;
     bool canRun = true;
-     
+
     private void Start()
     {
         anim = GetComponent<Animation>();
@@ -30,19 +30,16 @@ public class Ghoul : EnemyMovement
         {
             case EnemyState.Idle:
                 PlayAnimation("Idle");
-                Debug.Log("Idle");
                 speed = 0;
                 navMeshAgent.speed = speed;
                 break;
             case EnemyState.Run:
                 PlayAnimation("Run");
-                Debug.Log("Run");
                 speed = originalSpeed;
                 navMeshAgent.speed = speed;
                 break;
             case EnemyState.Attack1:
                 PlayAnimation("Attack1");
-                Debug.Log("Attack1");
                 break;
             case EnemyState.Attack2:
                 PlayAnimation("Attack2");
@@ -95,11 +92,6 @@ public class Ghoul : EnemyMovement
         else
         {
             canRun = true;
-        }   
-    }
-
-    public override void Attack()
-    {
-        throw new System.NotImplementedException();
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
@@ -11,7 +11,7 @@ public abstract class EnemyMovement : MonoBehaviour
     public float maxDistace = 50f; // khoảng cách
     public float distance;
     [HideInInspector] protected float speed;
-    [HideInInspector] protected float originalSpeed = 4;
+    public float originalSpeed = 4;
 
     protected void RunOnStart()
     {
@@ -78,6 +78,4 @@ public abstract class EnemyMovement : MonoBehaviour
             return;
         }
     }
-
-    public abstract void Attack();
 }
