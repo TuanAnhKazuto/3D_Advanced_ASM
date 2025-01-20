@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -17,18 +14,24 @@ public class Gun : MonoBehaviour
     public GameObject bulletHole;
     public float nextTimeToFire = 0f;
 
+
+    private void Start()
+    {
+        fpscam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        muzzleFlash = GameObject.Find("MuzzleFlash").GetComponent<ParticleSystem>();
+    }
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + fireSpeed / fireRate;
             Shoot();
 
         }
-        
+
     }
-     
+
     protected void Shoot()
     {
         muzzleFlash.Play();
@@ -42,7 +45,7 @@ public class Gun : MonoBehaviour
                 target.TakeDamage(damage);
             }
 
-            if(hit.rigidbody != null)
+            if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(hit.normal * -impactForce);
             }
