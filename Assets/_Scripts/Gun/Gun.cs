@@ -8,21 +8,18 @@ public class Gun : MonoBehaviour
     public float fireSpeed = 5f;
     public float impactForce = 30f;
 
-
+    [Header("Ammo Info")]
     public int maxAmmo = 10;
     public int currenAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
+    public float nextTimeToFire = 0f;
 
-
-
+    [Header("References")]
     public Camera fpscam;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public GameObject bulletHole;
-
-    public float nextTimeToFire = 0f;
-
     public Animator animator;
 
 
@@ -31,30 +28,22 @@ public class Gun : MonoBehaviour
         fpscam = GameObject.Find("Main Camera").GetComponent<Camera>();
         muzzleFlash = GameObject.Find("MuzzleFlash").GetComponent<ParticleSystem>();
         animator = GetComponent<Animator>();
-        if (currenAmmo == -1 )
         currenAmmo = maxAmmo;
 
-        isReloading = false;
+        animator.SetBool("Reloading", false);
     }
 
-    private void OnEnable()
-    {
-            isReloading = false;
-            animator.SetBool("Reloaing", false);
-    }
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log(isReloading);
         if (isReloading)
             return;
 
         if(currenAmmo <= 0 || Input.GetKeyDown(KeyCode.R))
         {
-            StartCoroutine(Reload());
+            Reload();
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + fireSpeed / fireRate;
             Shoot();
@@ -66,26 +55,18 @@ public class Gun : MonoBehaviour
         }
 
     }
-    IEnumerator Reload()
+    protected void Reload()
     {
         isReloading = true;
+        animator.SetBool("isFire", false);
         Debug.Log("reload");
-        reloadTime = animator.GetCurrentAnimatorStateInfo(0).length;
-
-        animator.SetBool("Reloaing", true);
-        yield return new WaitForSeconds(reloadTime - .7f);
-
-        animator.SetBool("Reloaing", false);
-        yield return new WaitForSeconds(.25f);
-
-        currenAmmo = maxAmmo;
-        isReloading = false ;
+        animator.SetBool("Reloading", true);
     }
 
     protected void Shoot()
     {
         muzzleFlash.Play();
-        currenAmmo --;
+        currenAmmo--;
 
         RaycastHit hit;
         if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit, range))
@@ -117,7 +98,13 @@ public class Gun : MonoBehaviour
         }
     }
 
-
+    public void ReloadingDone()
+    {
+        isReloading = false;
+        Debug.Log("Reloading Done");
+        animator.SetBool("Reloading", false);
+        currenAmmo = maxAmmo;
+    }
 
 
 
