@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public class Ghoul : EnemyMovement
+
 {
     private Animation anim;
     bool canRun = true;
