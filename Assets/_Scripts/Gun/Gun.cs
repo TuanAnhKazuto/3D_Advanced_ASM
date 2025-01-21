@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
         if (isReloading)
             return;
 
-        if(currenAmmo <= 0)
+        if(currenAmmo <= 0 || Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
             return;
