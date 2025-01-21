@@ -30,23 +30,23 @@ public class Gun : MonoBehaviour
     {
         fpscam = GameObject.Find("Main Camera").GetComponent<Camera>();
         muzzleFlash = GameObject.Find("MuzzleFlash").GetComponent<ParticleSystem>();
-
-        if(currenAmmo == -1 )
+        animator = GetComponent<Animator>();
+        if (currenAmmo == -1 )
         currenAmmo = maxAmmo;
 
-
+        isReloading = false;
     }
 
     private void OnEnable()
     {
             isReloading = false;
-            animator.SetBool("Reloading", false);
+            animator.SetBool("Reloaing", false);
     }
     // Update is called once per frame
     void Update()
     {
-
-        if (!isReloading)
+        Debug.Log(isReloading);
+        if (isReloading)
             return;
 
         if(currenAmmo <= 0)
@@ -58,7 +58,11 @@ public class Gun : MonoBehaviour
         {
             nextTimeToFire = Time.time + fireSpeed / fireRate;
             Shoot();
-
+            animator.SetBool("isFire", true);
+        }
+        else
+        {
+            animator.SetBool("isFire", false);
         }
 
     }
@@ -66,24 +70,21 @@ public class Gun : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("reload");
-       
+        reloadTime = animator.GetCurrentAnimatorStateInfo(0).length;
+
         animator.SetBool("Reloaing", true);
-        yield return new WaitForSeconds(reloadTime - .25f);
+        yield return new WaitForSeconds(reloadTime - .7f);
 
         animator.SetBool("Reloaing", false);
         yield return new WaitForSeconds(.25f);
 
         currenAmmo = maxAmmo;
         isReloading = false ;
-
-        
     }
 
     protected void Shoot()
     {
-
         muzzleFlash.Play();
-
         currenAmmo --;
 
         RaycastHit hit;
@@ -105,9 +106,13 @@ public class Gun : MonoBehaviour
             Quaternion _rorate = lookRotation * Quaternion.Euler(0f, 90f, 90f);
 
             GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
+
+            if(hit.transform.tag != "Enemy")
+            {
+                GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
+                Destroy(hole, 5f);
+            }
             Destroy(impactGO, 2f);
-            Destroy(hole, 5f);
 
         }
     }
