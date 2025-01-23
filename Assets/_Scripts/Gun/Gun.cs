@@ -59,7 +59,6 @@ public class Gun : MonoBehaviour
     {
         isReloading = true;
         animator.SetBool("isFire", false);
-        Debug.Log("reload");
         animator.SetBool("Reloading", true);
     }
 
@@ -86,15 +85,17 @@ public class Gun : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(hit.normal);
             Quaternion _rorate = lookRotation * Quaternion.Euler(0f, 90f, 90f);
 
-            GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            if(hit.transform.gameObject.CompareTag("Player"))
+            {
+                GameObject impactGO = Instantiate(impactEffect, hit.point, _rorate);
+                Destroy(impactGO, 2f);
+            }
 
-            if(hit.transform.tag != "Enemy")
+            if (!hit.transform.gameObject.CompareTag("Enemy") || !hit.transform.CompareTag("Player"))
             {
                 GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
                 Destroy(hole, 5f);
             }
-            Destroy(impactGO, 2f);
-
         }
     }
 
