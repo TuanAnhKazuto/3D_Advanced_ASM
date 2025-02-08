@@ -8,25 +8,23 @@ using UnityEngine.UI;
 public class LoadingLevel : MonoBehaviour
 {
     int sceneValue;
-
+    public GameObject loadPanel;
     public Slider slider;
 
     private void Start()
     {
+        loadPanel.SetActive(false);
         sceneValue = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadLevel(sceneValue + 1);
-        }
     }
-    public void LoadLevel(int levelName)
+    public void LoadLevel()
     {
-        StartCoroutine(Loading(levelName));
+        StartCoroutine(Loading(sceneValue + 1));
+        loadPanel.SetActive(true);
     }
 
     IEnumerator Loading(int SceneIndex)
