@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.8, y: 1.26, z: 33.73}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2752689857069156134}
   - {fileID: 537853812586082346}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5936e0116c0ca4a46a14da13c1421525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 500
+  mouseSensitivity: 100
   playerBody: {fileID: 2160475952135633289}
 --- !u!20 &7316769326382554575
 Camera:
@@ -271,7 +271,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.39735302, g: 0.46529418, b: 0.52294123, a: 0.6}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -384,9 +384,29 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2120963204127994421, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093634340398193873, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725371519831039651, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6980259576133684760, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520814639884122992, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980029976762078213, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -505,11 +525,11 @@ MonoBehaviour:
   maxAmmo: 10
   currenAmmo: 0
   reloadTime: 1
+  nextTimeToFire: 0
   fpscam: {fileID: 7316769326382554575}
   muzzleFlash: {fileID: 0}
   impactEffect: {fileID: 5238538877814813142, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   bulletHole: {fileID: 100000, guid: fd2eeafcf42fbdf4cb0ecbe6548396d3, type: 3}
-  nextTimeToFire: 0
   animator: {fileID: 0}
 --- !u!95 &1009019633492168321
 Animator:
@@ -601,9 +621,29 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2120963204127994421, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093634340398193873, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725371519831039651, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6980259576133684760, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 7520814639884122992, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980029976762078213, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -693,6 +733,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5789703485367661094, guid: 9c5ac491f264de345bd534069d892997, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5970021613053817571}
+    - targetCorrespondingSourceObject: {fileID: 5789703485367661094, guid: 9c5ac491f264de345bd534069d892997, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8516549757213286500}
   m_SourcePrefab: {fileID: 100100000, guid: 9c5ac491f264de345bd534069d892997, type: 3}
 --- !u!1 &7279625809112866637 stripped
 GameObject:
@@ -720,6 +763,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8516549757213286500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7279625809112866637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f876b8bb090fc94b9c4d946285eb7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 100
+  fireRate: 15
+  fireSpeed: 5
+  impactForce: 30
+  maxAmmo: 10
+  currenAmmo: 0
+  reloadTime: 1
+  nextTimeToFire: 0
+  fpscam: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+  impactEffect: {fileID: 5238538877814813142, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
+  bulletHole: {fileID: 100000, guid: 0cbc67bd61063af4e904364139f35b5d, type: 3}
+  animator: {fileID: 0}
 --- !u!4 &7948217507486123511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6562580326896265372, guid: 9c5ac491f264de345bd534069d892997, type: 3}
@@ -741,10 +810,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 554483499929203359, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472287473378466939, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155379975916854793, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6168020628747070745, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
       propertyPath: fpscam
       value: 
       objectReference: {fileID: 7316769326382554575}
+    - target: {fileID: 6168020628747070745, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
+      propertyPath: bulletHole
+      value: 
+      objectReference: {fileID: 100000, guid: 0cbc67bd61063af4e904364139f35b5d, type: 3}
     - target: {fileID: 7362774843178043870, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -795,6 +880,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7362774843178043870, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251027813834488794, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385709094802953391, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8791055180991221426, guid: 2c68b912215f23f4d9269bcc3d1b4a8f, type: 3}
@@ -858,7 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 4646019676098893970}
     - target: {fileID: 4020303367276749608, guid: 5b9b09cb628e0a64187df476c5e5979a, type: 3}
       propertyPath: fireSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4020303367276749608, guid: 5b9b09cb628e0a64187df476c5e5979a, type: 3}
       propertyPath: m_Enabled

@@ -2272,7 +2272,7 @@ GameObject:
   - component: {fileID: 7414551753074861043}
   - component: {fileID: 7533906154686311856}
   - component: {fileID: 8189158825519550508}
-  - component: {fileID: 8242918203125670521}
+  - component: {fileID: 5160413175217839078}
   - component: {fileID: 1222067190487911904}
   m_Layer: 0
   m_Name: Ghoul
@@ -2365,7 +2365,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8242918203125670521
+--- !u!114 &5160413175217839078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

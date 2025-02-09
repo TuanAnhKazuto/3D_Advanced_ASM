@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 public class Gun : MonoBehaviour
 {
     public float damage = 10f;
@@ -38,7 +37,7 @@ public class Gun : MonoBehaviour
         if (isReloading)
             return;
 
-        if(currenAmmo <= 0 || Input.GetKeyDown(KeyCode.R))
+        if (currenAmmo <= 0 || Input.GetKeyDown(KeyCode.R))
         {
             Reload();
             return;
@@ -85,17 +84,12 @@ public class Gun : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(hit.normal);
             Quaternion _rorate = lookRotation * Quaternion.Euler(0f, 90f, 90f);
 
-            if(hit.transform.gameObject.CompareTag("Player"))
+            if (hit.transform.gameObject.CompareTag("Player"))
             {
                 GameObject impactGO = Instantiate(impactEffect, hit.point, _rorate);
                 Destroy(impactGO, 2f);
             }
-
-            if (!hit.transform.gameObject.CompareTag("Enemy") || !hit.transform.CompareTag("Player"))
-            {
-                GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
-                Destroy(hole, 5f);
-            }
+            GameObject hole = Instantiate(bulletHole, hit.point, _rorate);
         }
     }
 
