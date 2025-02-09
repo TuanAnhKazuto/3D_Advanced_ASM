@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class EnemyMovement : MonoBehaviour
+public abstract class EnemyBehaviour : MonoBehaviour
 {
+    public float maxHealth;
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
 
@@ -81,7 +82,7 @@ public abstract class EnemyMovement : MonoBehaviour
 
     public void EnemyDeath(EnemyHealth enemyHealth)
     {
-        if(enemyHealth.heath <= 0)
+        if(enemyHealth.curHealth <= 0)
         {
             Death();
         }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Ghoul : EnemyMovement
+public class Ghoul : EnemyBehaviour
 
 {
     private Animation anim;
@@ -79,10 +79,10 @@ public class Ghoul : EnemyMovement
         EnemyDeath(enemyHealth);
         if (isDead) return;
         EnemyMove();
-        EnemyBehaviour();
+        GhoulBehaviour();
     }
 
-    private void EnemyBehaviour()
+    private void GhoulBehaviour()
     {
         if (speed > 1 && canRun)
         {
