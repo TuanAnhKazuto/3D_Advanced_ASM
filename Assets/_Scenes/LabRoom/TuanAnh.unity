@@ -4641,6 +4641,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1222067190487911904, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1553152048962355021, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.126099
@@ -4685,11 +4689,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghoul
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5922230259992286099, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8546171242752358361, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1528760918287685749}
   m_SourcePrefab: {fileID: 100100000, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
+--- !u!1 &1528760918287685748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8546171242752358361, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
+  m_PrefabInstance: {fileID: 1528760918287685747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1528760918287685749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528760918287685748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4065b9e21665be54c855db6b85655248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heath: 50
 --- !u!1001 &2737350775388727682
 PrefabInstance:
   m_ObjectHideFlags: 0

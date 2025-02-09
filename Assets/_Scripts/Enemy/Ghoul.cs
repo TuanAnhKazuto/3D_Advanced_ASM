@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Ghoul : EnemyMovement
 
 {
     private Animation anim;
+    private EnemyHealth enemyHealth;
     bool canRun = true;
+    bool isDead = false;
 
     private void Start()
     {
         anim = GetComponent<Animation>();
+        enemyHealth = GetComponent<EnemyHealth>();
         currentState = EnemyState.Idle;
         RunOnStart();
     }
@@ -19,6 +23,7 @@ public class Ghoul : EnemyMovement
         Run,
         Attack1,
         Attack2,
+        Dead
     }
 
     public EnemyState currentState;
@@ -45,6 +50,13 @@ public class Ghoul : EnemyMovement
             case EnemyState.Attack2:
                 PlayAnimation("Attack2");
                 break;
+            case EnemyState.Dead:
+                isDead = true;
+                PlayAnimation("Death");
+                speed = 0;
+                navMeshAgent.speed = speed;
+                StartCoroutine(WaitForAnimation(anim["Death"].length));
+                break;
         }
 
         currentState = newState;
@@ -64,7 +76,9 @@ public class Ghoul : EnemyMovement
 
     private void Update()
     {
-        Move();
+        EnemyDeath(enemyHealth);
+        if (isDead) return;
+        EnemyMove();
         EnemyBehaviour();
     }
 
@@ -94,5 +108,16 @@ public class Ghoul : EnemyMovement
         {
             canRun = true;
         }
+    }
+
+    public override void Death()
+    {
+        ChangeState(EnemyState.Dead);
+    }
+
+    private IEnumerator WaitForAnimation(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        Destroy(this.gameObject);
     }
 }

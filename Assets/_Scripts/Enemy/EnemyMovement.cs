@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public abstract class EnemyMovement : MonoBehaviour
 {
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
@@ -39,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
         navMeshAgent.isStopped = false;
     }
 
-    public void Move()
+    public void EnemyMove()
     {
         if (target != null)
         {
@@ -78,4 +78,14 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
     }
+
+    public void EnemyDeath(EnemyHealth enemyHealth)
+    {
+        if(enemyHealth.heath <= 0)
+        {
+            Death();
+        }
+    }
+
+    public abstract void Death();
 }
