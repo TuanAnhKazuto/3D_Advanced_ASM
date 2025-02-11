@@ -2337,7 +2337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.874985, y: -113.228}
+  m_AnchoredPosition: {x: 86.875, y: -113.22803}
   m_SizeDelta: {x: 148.239, y: 26.457}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473988377
@@ -3335,7 +3335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &691086487
 RectTransform:
   m_ObjectHideFlags: 0
