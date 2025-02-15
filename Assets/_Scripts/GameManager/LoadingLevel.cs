@@ -9,7 +9,7 @@ public class LoadingLevel : MonoBehaviour
 {
     int sceneValue;
     public GameObject loadPanel;
-    public Slider slider;
+    public Image loadingFill;
 
     private void Start()
     {
@@ -17,10 +17,6 @@ public class LoadingLevel : MonoBehaviour
         sceneValue = SceneManager.GetActiveScene().buildIndex;
     }
 
-    private void Update()
-    {
-
-    }
     public void LoadLevel()
     {
         StartCoroutine(Loading(sceneValue + 1));
@@ -34,7 +30,7 @@ public class LoadingLevel : MonoBehaviour
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            slider.value = progress;
+            loadingFill.fillAmount = progress;
             yield return null;
         }
     }
