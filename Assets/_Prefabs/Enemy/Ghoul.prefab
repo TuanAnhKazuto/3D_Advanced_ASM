@@ -2336,6 +2336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f064840b6fe0f5d438c83b189513581e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   target: {fileID: 0}
   navMeshAgent: {fileID: 0}
   radius: 30
@@ -2378,7 +2379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4065b9e21665be54c855db6b85655248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heath: 50
+  curHealth: 0
   hpSlider: {fileID: 8352804535585555720}
 --- !u!136 &1222067190487911904
 CapsuleCollider:
@@ -2634,6 +2635,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1553152048962355021}
     m_Modifications:
+    - target: {fileID: 1845963797759637431, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2246024450867448851, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -6,6 +6,11 @@ public abstract class EnemyBehaviour : MonoBehaviour
     public float maxHealth = 100f;
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
+    [SerializeField] protected EnemyHealth enemyHealth;
+
+    protected bool canRun = true;
+    protected bool isDead = false;
+
 
     public float radius = 10f;  // Phạm vi phát hiện
     [HideInInspector] public Vector3 position; // Vị trí ban đầu
@@ -16,6 +21,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
     protected void RunOnStart()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
 
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
