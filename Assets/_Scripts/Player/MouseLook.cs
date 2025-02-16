@@ -1,24 +1,44 @@
+using UnityEditor.Purchasing;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 500f;
+    public float mouseSensitivity;
+    [SerializeField] private Slider mouseSensitivitySlider;
     [SerializeField] private Transform playerBody;
     float xRotation = 0f;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        if(PlayerPrefs.HasKey("mouseSensitivity"))
+        {
+            LoadMouseSensitivity();
+        }
+        else
+        {
+            SetMouseSensitivity();
+        }
     }
 
     private void Update()
     {
         RorateCam();
+        SetMouseSensitivity();
+    }
 
-        if (Input.GetKey(KeyCode.LeftAlt))
-        {
-            ShowMouse();
-        }
+    public void SetMouseSensitivity()
+    {
+        mouseSensitivity = mouseSensitivitySlider.value;
+        PlayerPrefs.SetFloat("mouseSensitivity", mouseSensitivity);
+    }
+
+    public void LoadMouseSensitivity()
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity");
+        mouseSensitivitySlider.value = mouseSensitivity;
     }
 
     private void RorateCam()
@@ -36,5 +56,10 @@ public class MouseLook : MonoBehaviour
     public void ShowMouse()
     {
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void HideMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

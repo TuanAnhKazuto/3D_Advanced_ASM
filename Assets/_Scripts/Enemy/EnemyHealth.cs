@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    EnemyBehaviour enemyMovement;
+    EnemyBehaviour enemyBehaviour;
     [HideInInspector] public float curHealth;
 
     [Tooltip("HpBar => 'Slider'")]
@@ -11,10 +11,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-        enemyMovement = GetComponent<EnemyBehaviour>();
-        curHealth = enemyMovement.maxHealth;
-        hpSlider.maxValue = curHealth;
-        hpSlider.value = curHealth;
+        enemyBehaviour = GetComponent<EnemyBehaviour>();
+        curHealth = enemyBehaviour.maxHealth;
+        hpSlider.maxValue = enemyBehaviour.maxHealth;
     }
 
     private void Update()

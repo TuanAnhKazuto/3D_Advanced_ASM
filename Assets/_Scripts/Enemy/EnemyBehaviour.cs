@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public abstract class EnemyBehaviour : MonoBehaviour
 {
-    public float maxHealth;
+    public float maxHealth = 100f;
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
 

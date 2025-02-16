@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
     public float fireRate = 15f;
     public float fireSpeed = 5f;
     public float impactForce = 30f;
+    PauseGame pauseGame;
 
     [Header("Ammo Info")]
     public int maxAmmo = 10;
@@ -29,12 +30,13 @@ public class Gun : MonoBehaviour
         animator = GetComponent<Animator>();
         currenAmmo = maxAmmo;
 
+        pauseGame = FindObjectOfType<PauseGame>();
         animator.SetBool("Reloading", false);
     }
 
     void Update()
     {
-        if (isReloading)
+        if (isReloading || pauseGame.isPaused)
             return;
 
         if (currenAmmo <= 0 || Input.GetKeyDown(KeyCode.R))

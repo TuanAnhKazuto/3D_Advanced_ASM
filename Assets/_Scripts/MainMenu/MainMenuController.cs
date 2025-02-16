@@ -8,11 +8,15 @@ public class MainMenuController : MonoBehaviour
     public GameObject ctrlPanel;
     public GameObject campaignPanel;
 
-    PanelType currentPanel;
 
     private void Start()
     {
         ShowMainBtn();
+    }
+
+    private void Update()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 
     #region PanelType
@@ -70,11 +74,6 @@ public class MainMenuController : MonoBehaviour
         ShowPanel(PanelType.CtrlPanel);
     }
     #endregion
-
-    public void BtnPlay()
-    {
-        SceneManager.LoadScene(1);
-    }
 
     public void BtnSetting()
     {
