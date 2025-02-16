@@ -1,15 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Zombie : EnemyBehaviour
 {
-    Animator animator;
-
-    private void Start()
+    protected override void Start()
     {
-        animator = GetComponent<Animator>();    
-        RunOnStart();
+        base.Start();
     }
-
     private void Update()
     {
         EnemyMove();
@@ -18,6 +15,6 @@ public class Zombie : EnemyBehaviour
 
     public override void Death()
     {
-        animator.Play("Z_FallingBack");
+        throw new System.NotImplementedException();
     }
 }

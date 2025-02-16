@@ -552,11 +552,13 @@ MonoBehaviour:
   target: {fileID: 0}
   navMeshAgent: {fileID: 0}
   enemyHealth: {fileID: 0}
+  anim: {fileID: 0}
   radius: 30
   position: {x: 0, y: 0, z: 0}
   maxDistace: 50
   distance: 0
   originalSpeed: 4
+  currentState: 0
 --- !u!1001 &1020715102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -567,11 +569,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2246024450867448851, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.729
       objectReference: {fileID: 0}
     - target: {fileID: 2246024450867448851, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5610393386253302479, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_Pivot.x
@@ -6356,7 +6358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4872485735834769860
 Transform:
   m_ObjectHideFlags: 0
