@@ -9,7 +9,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
     [SerializeField] protected Transform target;
     [SerializeField] protected NavMeshAgent navMeshAgent;
     [SerializeField] protected EnemyHealth enemyHealth;
-    [SerializeField] protected Animation anim;
 
     protected bool canRun = true;
     protected bool isDead = false;
@@ -26,7 +25,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
     protected virtual void Start()
     {
         enemyHealth = GetComponent<EnemyHealth>();
-        anim = GetComponent<Animation>();
 
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null) return;
@@ -34,7 +32,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
             target = player.GetComponent<Transform>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
-
 
         position = transform.position; // vị trí
 
@@ -49,69 +46,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
         speed = 0;
         navMeshAgent.speed = speed;
         navMeshAgent.isStopped = false;
-    }
-
-    public enum EnemyState
-    {
-        Idle,
-        Run,
-        Attack1,
-        Attack2,
-        Dead
-    }
-
-    public EnemyState currentState;
-
-    public void ChangeState(EnemyState newState)
-    {
-        if (currentState == newState) return;
-
-        switch (newState)
-        {
-            case EnemyState.Idle:
-                PlayAnimation("Idle");
-                speed = 0;
-                navMeshAgent.speed = speed;
-                break;
-            case EnemyState.Run:
-                PlayAnimation("Run");
-                speed = originalSpeed;
-                navMeshAgent.speed = speed;
-                break;
-            case EnemyState.Attack1:
-                PlayAnimation("Attack1");
-                break;
-            case EnemyState.Attack2:
-                PlayAnimation("Attack2");
-                break;
-            case EnemyState.Dead:
-                isDead = true;
-                PlayAnimation("Death");
-                speed = 0;
-                navMeshAgent.speed = speed;
-                StartCoroutine(WaitForAnimation(anim["Death"].length));
-                break;
-        }
-
-        currentState = newState;
-    }
-
-    private void PlayAnimation(string animationName)
-    {
-        anim.Play(animationName);
-        foreach (AnimationState state in anim)
-        {
-            if (state.name != animationName)
-            {
-                anim.Stop(state.name);
-            }
-        }
-    }
-
-    private IEnumerator WaitForAnimation(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        Destroy(this.gameObject);
     }
 
     public void EnemyMove()
