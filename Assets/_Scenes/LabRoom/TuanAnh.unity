@@ -514,7 +514,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -552,7 +552,6 @@ MonoBehaviour:
   target: {fileID: 0}
   navMeshAgent: {fileID: 0}
   enemyHealth: {fileID: 0}
-  anim: {fileID: 0}
   radius: 30
   position: {x: 0, y: 0, z: 0}
   maxDistace: 50
@@ -569,11 +568,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2246024450867448851, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.729
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2246024450867448851, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5610393386253302479, guid: 8638b4a6d53de63409527f7b303d643d, type: 3}
       propertyPath: m_Pivot.x
@@ -2916,15 +2915,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8457278951837089452, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8457278951837089452, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8546171242752358361, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
       propertyPath: m_Name
       value: Ghoul
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546171242752358361, guid: f25dbd1ed06ac1741964504dbc06eb73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6358,7 +6361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4872485735834769860
 Transform:
   m_ObjectHideFlags: 0
@@ -6772,7 +6775,7 @@ Transform:
   m_GameObject: {fileID: 4956532460013877375}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.97, y: 0, z: 3.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6940,7 +6943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2160475952135633289, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.859423
+      value: 8.69
       objectReference: {fileID: 0}
     - target: {fileID: 2160475952135633289, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6948,7 +6951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2160475952135633289, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 34.21676
+      value: 44.16
       objectReference: {fileID: 0}
     - target: {fileID: 2160475952135633289, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7204,9 +7207,9 @@ Transform:
   m_GameObject: {fileID: 4803014353776689320}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.940926, y: 0.000002861023, z: 14.950641}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 23.57, y: 0.000002861023, z: 16.95}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6201095570414782976}
   - {fileID: 6915863934294384562}

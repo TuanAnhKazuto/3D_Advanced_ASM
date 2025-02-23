@@ -43,7 +43,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
             navMeshAgent.Warp(position); // Đặt vị trí ban đầu chính xác
         }
 
-        speed = 0;
+        speed = originalSpeed;
         navMeshAgent.speed = speed;
         navMeshAgent.isStopped = false;
     }
