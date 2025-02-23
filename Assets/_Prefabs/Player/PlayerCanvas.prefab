@@ -186,7 +186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2637308205754505715, guid: bebc9a5ea236c8240952acea1883b731, type: 3}
       propertyPath: m_Name
-      value: EXIT Button
+      value: MENU Button
       objectReference: {fileID: 0}
     - target: {fileID: 3345663097523889748, guid: bebc9a5ea236c8240952acea1883b731, type: 3}
       propertyPath: m_Name
