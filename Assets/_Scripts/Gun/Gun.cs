@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour
     public GameObject impactEffect;
     public GameObject bulletHole;
     public Animator animator;
+    public AudioSource fireSound;
 
 
     private void Start()
@@ -28,6 +29,7 @@ public class Gun : MonoBehaviour
         fpscam = GameObject.Find("Main Camera").GetComponent<Camera>();
         muzzleFlash = GameObject.Find("MuzzleFlash").GetComponent<ParticleSystem>();
         animator = GetComponent<Animator>();
+        fireSound = GetComponent<AudioSource>();
         currenAmmo = maxAmmo;
 
         pauseGame = FindObjectOfType<PauseGame>();
@@ -49,6 +51,8 @@ public class Gun : MonoBehaviour
             nextTimeToFire = Time.time + fireSpeed / fireRate;
             Shoot();
             animator.SetBool("isFire", true);
+            fireSound.Play();
+
         }
         else
         {
