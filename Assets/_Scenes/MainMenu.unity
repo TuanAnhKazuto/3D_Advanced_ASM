@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,7 +272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &21378414
 Transform:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7373548997032582604, guid: 88f8736ccecf1f845a6617f315110407, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e18266c33c2581a43890a969bf6cec53, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -930,7 +930,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2687489904636851300, guid: 88f8736ccecf1f845a6617f315110407, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8d953101a46350d4b82a8816017eb61e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 72faa9a4652ea2d48a0839b3adbbfa53, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3994,6 +3994,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 420262091}
+    - target: {fileID: 3421841682764256259, guid: 7213b47ee6fb4dd4db6a2e7b0e314ce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BtnExitSetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421841682764256259, guid: 7213b47ee6fb4dd4db6a2e7b0e314ce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3542569843827086405, guid: 7213b47ee6fb4dd4db6a2e7b0e314ce0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4134,6 +4142,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 420262091}
+    - target: {fileID: 8022447992809953960, guid: 7213b47ee6fb4dd4db6a2e7b0e314ce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BtnExitCtrl
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022447992809953960, guid: 7213b47ee6fb4dd4db6a2e7b0e314ce0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8186013910627292012, guid: 7213b47ee6fb4dd4db6a2e7b0e314ce0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
