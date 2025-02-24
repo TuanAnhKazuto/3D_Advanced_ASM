@@ -8558,13 +8558,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1380381877}
     m_Modifications:
+    - target: {fileID: 1800786195258958357, guid: b2a1e9ebe5352754398c0d61f506626d, type: 3}
+      propertyPath: m_text
+      value: Loading
+      objectReference: {fileID: 0}
     - target: {fileID: 1885392070453634563, guid: b2a1e9ebe5352754398c0d61f506626d, type: 3}
       propertyPath: m_Name
       value: LoadingPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1885392070453634563, guid: b2a1e9ebe5352754398c0d61f506626d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6604578995217124512, guid: b2a1e9ebe5352754398c0d61f506626d, type: 3}
       propertyPath: m_Pivot.x
@@ -16179,9 +16179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadPanel: {fileID: 786666420}
   loadingFill: {fileID: 392070972}
-  lowPickUpItem: {fileID: 6773071396685226662}
-  information: {fileID: 1027371669}
-  inforAnim: {fileID: 1027371670}
 --- !u!65 &1816248013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16201,8 +16198,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.4, y: 2.8000002, z: 1.4727268}
-  m_Center: {x: 2.7, y: 4, z: 0.7813635}
+  m_Size: {x: 2.4, y: 2.8000002, z: 0.39290428}
+  m_Center: {x: 2.7, y: 4, z: 0.24145222}
 --- !u!4 &1818206730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7317118214247011583, guid: 16f88bac483bd004aa718dd62225897d, type: 3}
@@ -20573,6 +20570,18 @@ PrefabInstance:
     - target: {fileID: 5383785836952585346, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowSetting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664264840837628487, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664264840837628487, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664264840837628487, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5696992344581222377, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

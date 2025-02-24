@@ -21,7 +21,7 @@ public class LowPickUpItem : MonoBehaviour
     private void Update()
     {
         PickUpGun();
-        PickUpKey();
+        //PickUpKey();
     }
 
     private void PickUpGun()
