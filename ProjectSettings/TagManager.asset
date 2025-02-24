@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Cua
   - CinemachineTarget
+  - BulletHole
+  - Gun
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
-  - 
+  - Gun
+  - Key
   - 
   - 
   - 
