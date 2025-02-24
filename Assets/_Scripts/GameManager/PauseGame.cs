@@ -16,6 +16,7 @@ public class PauseGame : MonoBehaviour
     {
         isPaused = false;
         pauseMenu.SetActive(false);
+        settingPanel.SetActive(false);
         Time.timeScale = 1;
         mouseLook = FindObjectOfType<MouseLook>();
     }
