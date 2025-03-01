@@ -3634,6 +3634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 390277181}
+  - component: {fileID: 390277182}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -3673,6 +3674,30 @@ Transform:
   - {fileID: 2003618563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &390277182
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390277180}
+  m_Enabled: 1
+  m_MinDistance: 52
+  m_MaxDistance: 53.7
+  m_ReverbPreset: 18
+  m_Room: -1000
+  m_RoomHF: -2500
+  m_DecayTime: 1.49
+  m_DecayHFRatio: 0.21
+  m_Reflections: -2780
+  m_ReflectionsDelay: 0.3
+  m_Reverb: -1434
+  m_ReverbDelay: 0.1
+  m_HFReference: 5000
+  m_Diffusion: 27
+  m_Density: 100
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!114 &392070972 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7005158433170914061, guid: b2a1e9ebe5352754398c0d61f506626d, type: 3}
