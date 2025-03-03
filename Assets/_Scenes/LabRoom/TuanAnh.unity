@@ -2477,6 +2477,32 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1404337272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2516081544765015879, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+  m_PrefabInstance: {fileID: 9102866537018379674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1404337277
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404337272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0fddf6fa258cebe4dbb54c8275655750, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1414293617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6595324502468023146, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
@@ -4710,10 +4736,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2010065724}
-    - target: {fileID: 1621919195277267768, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2200807501688903013, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
@@ -4964,6 +4986,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752689857069156134, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5090334065457189104, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
       propertyPath: mouseSensitivitySlider
       value: 
@@ -4987,7 +5013,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2516081544765015879, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1404337277}
   m_SourcePrefab: {fileID: 100100000, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
