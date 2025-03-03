@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
     public int maxAmmo = 10;
     public int currenAmmo;
     public float reloadTime = 1f;
-    private bool isReloading = false;
+    [SerializeField] private bool isReloading = false;
     public float nextTimeToFire = 0f;
 
     [Header("References")]
@@ -23,17 +23,27 @@ public class Gun : MonoBehaviour
     public Animator animator;
     public AudioSource fireSound;
 
-
-    private void Start()
+    private void Awake()
     {
         fpscam = GameObject.Find("Main Camera").GetComponent<Camera>();
         muzzleFlash = GameObject.Find("MuzzleFlash").GetComponent<ParticleSystem>();
         animator = GetComponent<Animator>();
         fireSound = GetComponent<AudioSource>();
-        currenAmmo = maxAmmo;
-
         pauseGame = FindObjectOfType<PauseGame>();
+        Debug.Log("Gun Script is Awake");
+        
+    }
+
+    private void OnEnable()
+    {
+        isReloading = false;
         animator.SetBool("Reloading", false);
+    }
+
+
+    private void Start()
+    {
+        currenAmmo = maxAmmo;
     }
 
     void Update()

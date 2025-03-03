@@ -12,9 +12,12 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public Animator mainCamAnim;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        mainCamAnim = GameObject.Find("Main Camera").GetComponent<Animator>();
     }
 
     private void Update()
