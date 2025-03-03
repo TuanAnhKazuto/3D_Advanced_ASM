@@ -4748,6 +4748,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2010065724}
+    - target: {fileID: 2799033896723987347, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 83841d0db58008747b6db6d41bc61d7a, type: 2}
+    - target: {fileID: 2799033896723987347, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -9028090168619707307, guid: 83841d0db58008747b6db6d41bc61d7a, type: 2}
+    - target: {fileID: 2799033896723987347, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2951221536049491426, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4756,6 +4768,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2010065724}
+    - target: {fileID: 3456785909877346259, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 83841d0db58008747b6db6d41bc61d7a, type: 2}
+    - target: {fileID: 3456785909877346259, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -9028090168619707307, guid: 83841d0db58008747b6db6d41bc61d7a, type: 2}
+    - target: {fileID: 3456785909877346259, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401006037641189707, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_text
+      value: Name
+      objectReference: {fileID: 0}
     - target: {fileID: 5383785836952585346, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4871,6 +4899,10 @@ PrefabInstance:
     - target: {fileID: 6930595556905905422, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105914504684029565, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7802264804721630464, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_IsActive
