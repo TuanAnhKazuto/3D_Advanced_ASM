@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
         animator = GetComponent<Animator>();
         fireSound = GetComponent<AudioSource>();
         pauseGame = FindObjectOfType<PauseGame>();
-        Debug.Log("Gun Script is Awake");
+
         
     }
 
