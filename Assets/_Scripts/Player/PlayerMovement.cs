@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     CharacterController controller;
+    PauseGame pauseGame;
     public float speed = 12f;
     public float jumpHeight = 3f;
     public float gravity = -9.81f;
@@ -13,11 +14,14 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public Animator mainCamAnim;
+    public AudioSource footAudio;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         mainCamAnim = GameObject.Find("Main Camera").GetComponent<Animator>();
+        footAudio = GetComponent<AudioSource>();
+        pauseGame = GameObject.Find("GameManager").GetComponent<PauseGame>();
     }
 
     private void Update()
@@ -41,6 +45,20 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         mainCamAnim.SetFloat("Speed", move.magnitude);
+        if(move.magnitude > 0 && isGrounded && !pauseGame.isPaused)
+        {
+            if (!footAudio.isPlaying)
+            {
+                footAudio.Play();
+            }
+        }
+        else
+        {
+            if(move.magnitude < 1 || pauseGame.isPaused)
+            {
+                footAudio.Stop();
+            }
+        }
 
         controller.Move(move * speed * Time.deltaTime);
 
