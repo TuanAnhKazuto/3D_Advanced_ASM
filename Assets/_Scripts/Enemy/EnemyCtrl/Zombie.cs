@@ -16,6 +16,7 @@ public class Zombie : EnemyBehaviour
         EnemyMove();
         EnemyDeath(enemyHealth);
         ZombieBehaviour();
+        EnemySoundControll();
     }
 
     public enum EnemyState
