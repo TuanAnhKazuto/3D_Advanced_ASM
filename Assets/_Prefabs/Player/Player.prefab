@@ -56,6 +56,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  mainCamAnim: {fileID: 0}
 --- !u!33 &3471671735365132721
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -542,7 +543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8649336739764800960, guid: 5b9b09cb628e0a64187df476c5e5979a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

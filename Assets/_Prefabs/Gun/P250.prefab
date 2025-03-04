@@ -581,6 +581,7 @@ MonoBehaviour:
   maxAmmo: 10
   currenAmmo: 0
   reloadTime: 1
+  isReloading: 0
   nextTimeToFire: 0
   fpscam: {fileID: 0}
   muzzleFlash: {fileID: 0}
