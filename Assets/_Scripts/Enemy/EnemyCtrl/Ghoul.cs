@@ -108,6 +108,7 @@ public class Ghoul : EnemyBehaviour
         if (isDead) return;
         EnemyMove();
         GhoulBehaviour();
+        EnemySoundControll();
     }
 
     public override void Death()

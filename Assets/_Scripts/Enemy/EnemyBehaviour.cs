@@ -20,6 +20,11 @@ public abstract class EnemyBehaviour : MonoBehaviour
     public float distance;
     [HideInInspector] protected float speed;
     public float originalSpeed = 4;
+
+    AudioSource[] audioSources;
+    [SerializeField] private AudioSource enemySound01;
+    [SerializeField] private AudioSource enemySound02;
+    [SerializeField] private AudioSource enemySound03;
     #endregion
 
     protected virtual void Start()
@@ -47,6 +52,23 @@ public abstract class EnemyBehaviour : MonoBehaviour
         navMeshAgent.speed = speed;
         navMeshAgent.isStopped = false;
     }
+
+    public void EnemySoundControll()
+    {
+        // Mảng chứa các âm thanh để dễ quản lý
+        audioSources = new AudioSource[] { enemySound01, enemySound02, enemySound03 };
+
+        // Chọn một âm thanh ngẫu nhiên
+        int randomSound = Random.Range(0, audioSources.Length);
+        Debug.Log("Random Sound Index: " + randomSound);
+
+        // Nếu không có âm thanh nào đang phát, bắt đầu phát một âm thanh ngẫu nhiên
+        if (!audioSources[0].isPlaying && !audioSources[1].isPlaying && !audioSources[2].isPlaying)
+        {
+            audioSources[randomSound].Play();
+        }
+    }
+
 
     public void EnemyMove()
     {
