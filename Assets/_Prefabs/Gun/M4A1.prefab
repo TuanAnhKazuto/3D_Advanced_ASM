@@ -979,6 +979,7 @@ MonoBehaviour:
   impactForce: 30
   maxAmmo: 34
   currenAmmo: 0
+  ammoCountText: {fileID: 0}
   reloadTime: 1
   isReloading: 0
   nextTimeToFire: 0

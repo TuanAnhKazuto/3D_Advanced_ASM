@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 public class Gun : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Gun : MonoBehaviour
     [Header("Ammo Info")]
     public int maxAmmo = 10;
     public int currenAmmo;
+    public TextMeshProUGUI ammoCountText;
     public float reloadTime = 1f;
     [SerializeField] private bool isReloading = false;
     public float nextTimeToFire = 0f;
@@ -23,10 +25,9 @@ public class Gun : MonoBehaviour
     public Animator animator;
     public AudioSource fireSound;
 
-    private void Awake()
+    public virtual void Awake()
     {
         fpscam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        muzzleFlash = GameObject.Find("MuzzleFlash").GetComponent<ParticleSystem>();
         animator = GetComponent<Animator>();
         fireSound = GetComponent<AudioSource>();
         pauseGame = FindObjectOfType<PauseGame>();
@@ -41,12 +42,12 @@ public class Gun : MonoBehaviour
     }
 
 
-    private void Start()
+    public virtual void Start()
     {
         currenAmmo = maxAmmo;
     }
 
-    void Update()
+    public virtual void Update()
     {
         if (isReloading || pauseGame.isPaused)
             return;
@@ -68,7 +69,6 @@ public class Gun : MonoBehaviour
         {
             animator.SetBool("isFire", false);
         }
-
     }
     protected void Reload()
     {
