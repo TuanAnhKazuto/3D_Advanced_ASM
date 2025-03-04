@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Runtime.CompilerServices;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,14 +15,19 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public Animator mainCamAnim;
-    public AudioSource footAudio;
+    [SerializeField] private Animator mainCamAnim;
+    [SerializeField] private AudioSource footAudio;
+    [SerializeField] private AudioSource jumpAudio;
+    [SerializeField] private AudioSource landAudio;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         mainCamAnim = GameObject.Find("Main Camera").GetComponent<Animator>();
-        footAudio = GetComponent<AudioSource>();
+        footAudio = GameObject.Find("playerFootStep").GetComponent<AudioSource>();
+        jumpAudio = GameObject.Find("playerJumpUp").GetComponent<AudioSource>();
+        landAudio = GameObject.Find("playerLand").GetComponent<AudioSource>();
+
         pauseGame = GameObject.Find("GameManager").GetComponent<PauseGame>();
     }
 
@@ -45,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         mainCamAnim.SetFloat("Speed", move.magnitude);
-        if(move.magnitude > 0 && isGrounded && !pauseGame.isPaused)
+        if (move.magnitude > 0 && isGrounded && !pauseGame.isPaused)
         {
             if (!footAudio.isPlaying)
             {
@@ -54,12 +61,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if(move.magnitude < 1 || pauseGame.isPaused)
+            if (move.magnitude < 1 || pauseGame.isPaused)
             {
                 footAudio.Stop();
             }
         }
-
         controller.Move(move * speed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
@@ -67,11 +73,16 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (!jumpAudio.isPlaying)
+            {
+                jumpAudio.Play();
+            }
         }
     }
 }
