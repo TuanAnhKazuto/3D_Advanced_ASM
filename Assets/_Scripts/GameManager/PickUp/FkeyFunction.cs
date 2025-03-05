@@ -15,6 +15,7 @@ public class FkeyFunction : MonoBehaviour
     public LayerMask layerMaskP250;
     public LayerMask keyLayerMask;
     public LayerMask firstAid;
+    public LayerMask doorInOpenScene;
 
     [Header("Pick Up P250")]
     [Tooltip("It's in Hierachy: Player => Main Camera => Gun => P250")]
@@ -22,7 +23,7 @@ public class FkeyFunction : MonoBehaviour
     public GameObject subArmUI;
 
     [Header("Pick Up Key")]
-    public bool isKey = false;
+    public bool isHasKey = false;
 
 
     private void Awake()
@@ -35,7 +36,7 @@ public class FkeyFunction : MonoBehaviour
         fKey.SetActive(false);
         isShowFkey = false;
 
-        combinedLayerMask = layerMaskP250 | keyLayerMask;
+        combinedLayerMask = layerMaskP250 | keyLayerMask | doorInOpenScene;
     }
 
     private void Update()
@@ -49,14 +50,23 @@ public class FkeyFunction : MonoBehaviour
     {
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, 3f, combinedLayerMask))
         {
-            fKey.SetActive(true);
-            isShowFkey = true;
+            ShowFkeyBase();
         }
         else
         {
-            fKey.SetActive(false);
-            isShowFkey = false;
+            HideFkeyBase();
         }
+    }
+
+    public void ShowFkeyBase()
+    {
+        fKey.SetActive(true);
+        isShowFkey = true;
+    }
+    public void HideFkeyBase()
+    {
+        fKey.SetActive(false);
+        isShowFkey = false;
     }
 
     public void P250PickUp()
@@ -68,8 +78,7 @@ public class FkeyFunction : MonoBehaviour
                 subArmUI.SetActive(true);
                 Destroy(hit.transform.gameObject);
                 p250Obj.SetActive(true);
-                fKey.SetActive(false);
-                isShowFkey = false;
+                HideFkeyBase();
             }
         }
     }
@@ -81,9 +90,20 @@ public class FkeyFunction : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && isShowFkey)
             {
                 Destroy(hit.transform.gameObject);
-                fKey.SetActive(false);
-                isShowFkey = false;
-                isKey = true;
+                HideFkeyBase();
+                isHasKey = true;
+            }
+        }
+    }
+
+    public void OpenDoorInSceneOpen()
+    {
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, 3f, doorInOpenScene))
+        {
+            if (Input.GetKeyDown(KeyCode.F) && isShowFkey)
+            {
+                Destroy(hit.transform.gameObject);
+                HideFkeyBase();
             }
         }
     }
