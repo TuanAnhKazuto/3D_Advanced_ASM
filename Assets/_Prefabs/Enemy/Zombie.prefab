@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 7324663433598137793}
   - component: {fileID: 554406099984255096}
   - component: {fileID: 5502025938907475399}
+  - component: {fileID: 8499362748341057346}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -802,13 +803,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.57, y: 0.000002861023, z: 16.95}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.4500002, y: 1.4500002, z: 1.4500002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4452570611863050634}
   - {fileID: 8267285428766630225}
   - {fileID: 235289550326946145}
   - {fileID: 8858140742376027124}
+  - {fileID: 2977177278440462585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6045938880364267158
@@ -916,6 +918,19 @@ CapsuleCollider:
   m_Height: 1.75
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &8499362748341057346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3123409348515725658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bc826028a93634dab5e2f230f04f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageZone: {fileID: 8632612040304909060}
 --- !u!1 &3410543433695751798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,6 +1963,59 @@ Transform:
   - {fileID: 1578529573429714500}
   m_Father: {fileID: 4452570611863050634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8632612040304909060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2977177278440462585}
+  - component: {fileID: 2056729081208142557}
+  m_Layer: 0
+  m_Name: DamageZone
+  m_TagString: EnemyDamageZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2977177278440462585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632612040304909060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3734165065619868706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2056729081208142557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632612040304909060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 1.4200001, z: 1.0721631}
+  m_Center: {x: 0, y: 0.9999999, z: 0.6860815}
 --- !u!1 &8795310283097858257
 GameObject:
   m_ObjectHideFlags: 0

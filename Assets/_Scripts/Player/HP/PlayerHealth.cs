@@ -4,13 +4,16 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     private float maxHealth = 1;
-    private float currentHealth;
+    public float currentHealth;
+    public WinLose winLose;
+
 
     Image hpFill;
 
     private void Awake()
     {
         hpFill = GameObject.Find("lifeFill").GetComponent<Image>();
+        winLose = GameObject.Find("GameManager").GetComponent<WinLose>();
     }
 
     private void Start()
@@ -19,7 +22,14 @@ public class PlayerHealth : MonoBehaviour
         hpFill.fillAmount = currentHealth;
     }
 
-
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            winLose.GameOver();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

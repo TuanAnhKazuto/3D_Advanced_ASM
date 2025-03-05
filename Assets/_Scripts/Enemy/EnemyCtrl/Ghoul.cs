@@ -39,7 +39,7 @@ public class Ghoul : EnemyBehaviour
                 navMeshAgent.speed = speed;
                 break;
             case EnemyState.Attack1:
-                PlayAnimation("Attack1");
+                PlayAnimation("Attack01");
                 break;
             case EnemyState.Attack2:
                 PlayAnimation("Attack2");
