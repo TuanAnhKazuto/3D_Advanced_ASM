@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
@@ -12,9 +10,13 @@ public class NPC : MonoBehaviour
     [HideInInspector] public bool isChating;
     Coroutine coroutine;
     public int maxline;
+    PlayerMovement movement;
 
-    // đoạn chat
-    //public string[] chat;
+    public WeaponSwitting weaponSwitting;
+    public GameObject mainArm;
+
+    //đoạn chat
+    public string[] chat;
     // nhiệm vụ
     //public QuestItem questItem;
 
@@ -26,7 +28,11 @@ public class NPC : MonoBehaviour
         yes.SetActive(false);
         npcChatPanel.SetActive(true);
         npcChatPanel.SetActive(false);
+        weaponSwitting = GameObject.Find("Gun").GetComponent<WeaponSwitting>();
+        movement = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
+        mainArm.SetActive(false);
+        weaponSwitting.enabled = false;
     }
 
 
@@ -35,7 +41,7 @@ public class NPC : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //PlayerQuests = other.gameObject.GetComponent<PlayerQuest>();
-            //yes.SetActive(true);
+            yes.SetActive(true);
         }
     }
 
@@ -44,70 +50,80 @@ public class NPC : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.F) && !isChating)
         {
             isChating = true;
-            //yes.SetActive(false);
+            yes.SetActive(false);
+            movement.speed = 0;
             npcChatPanel.SetActive(true);
-            //coroutine = StartCoroutine(ReadChat());
+            coroutine = StartCoroutine(ReadChat());
+
+
         }
     }
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        yes.SetActive(false);
-    //        if (PlayerQuests != null)
-    //        {
-    //            //PlayerQuests.TakeQuest(questItem);
-
-    //        }
-
-    //        if (isChating)
-    //        {
-    //            StopCoroutine(coroutine); // Dừng đoạn chat 
-    //            coroutine = null;
-    //            isChating = false;
-    //        }
-
-    //        npcChatPanel.SetActive(false);
-    //    }
-    //}
-
-
-    //IEnumerator ReadChat()
-    //{
-
-    //    foreach (var line in chat)
-    //    {
-    //        chatText.text = "";
-
-    //        if (Input.GetKeyDown(KeyCode.Q))
-    //        {
-    //            chatText.text = line;
-    //        }
-    //        else
-    //        {
-    //            for (int i = 0; i < line.Length; i++)
-    //            {
-
-    //                chatText.text += line[i];
-    //                yield return new WaitForSeconds(0.1f);
-
-    //            }
-    //        }
-
-    //        yield return new WaitForSeconds(0.5f);
-
-    //    }
-    //    yes.SetActive(true);
-    //    isChating = false;
-
-    //}
-    // Nhận nhiệm vụ và đóng bảng chat
-    public void HidePanel()
+    private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //yes.SetActive(false);
+            //if (PlayerQuests != null)
+            //{
+            //    //PlayerQuests.TakeQuest(questItem);
+
+            //}
+
+            if (isChating)
+            {
+                StopCoroutine(coroutine); // Dừng đoạn chat 
+                coroutine = null;
+                isChating = false;
+            }
+
+            npcChatPanel.SetActive(false);
+        }
+    }
+
+
+    IEnumerator ReadChat()
+    {
+
+        foreach (var line in chat)
+        {
+            chatText.text = "";
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                chatText.text = line;
+            }
+            else
+            {
+                for (int i = 0; i < line.Length; i++)
+                {
+
+                    chatText.text += line[i];
+                    yield return new WaitForSeconds(0.1f);
+
+                }
+            }
+
+            yield return new WaitForSeconds(0.5f);
+
+        }
+        yes.SetActive(true);
+        isChating = false;
         npcChatPanel.SetActive(false);
 
+
+        yield return new WaitForSeconds(0.5f);
+
+        mainArm.SetActive(true);
+        movement.speed = 12;
+        weaponSwitting.enabled = true;
     }
+    //// Nhận nhiệm vụ và đóng bảng chat
+    //public void HidePanel()
+    //{
+    //    npcChatPanel.SetActive(false);
+
+    //}
 
 
 }
