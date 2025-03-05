@@ -12,6 +12,12 @@ public class PauseGame : MonoBehaviour
 
     MouseLook mouseLook;
 
+    private void Awake()
+    {
+        pauseMenu.SetActive(true);
+        settingPanel.SetActive(true);
+    }
+
     private void Start()
     {
         isPaused = false;
