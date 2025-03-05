@@ -11,8 +11,6 @@ public class MouseLook : MonoBehaviour
 
     private void Start()
     {
-        mouseSensitivitySlider = GameObject.Find("SensitivitySlider").GetComponentInChildren<Slider>();
-
         Cursor.lockState = CursorLockMode.Locked;
 
         if(PlayerPrefs.HasKey("mouseSensitivity"))

@@ -1,17 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class VideoEndSceneChange : MonoBehaviour
+public class VideoEndSceneChange : LoadingLevel 
 {
-    public VideoPlayer videoPlayer; // Gán VideoPlayer trong Inspector
-    public string nextSceneName = "SceneOpen"; // Đặt tên Scene cần chuyển
+    public VideoPlayer videoPlayer;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Khi nhấn phím Space
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+        if (videoPlayer.isPlaying == false)
         {
-            SceneManager.LoadScene(nextSceneName); // Chuyển Scene
+            LoadLevel();
         }
+    }
+
+    public void Skip()
+    {
+        LoadLevel();
     }
 }

@@ -10,18 +10,22 @@ public class LoadingLevel : MonoBehaviour
     int sceneValue;
     public GameObject loadPanel;
     public Image loadingFill;
+    bool isLoad;
 
     protected virtual void Start()
     {
         loadingFill.fillAmount = 0;
         loadPanel.SetActive(false);
+        isLoad = false;
         sceneValue = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void LoadLevel()
     {
+        if (isLoad) return;
         loadPanel.SetActive(true);
         StartCoroutine(Loading(sceneValue + 1));
+        isLoad = true;
     }
 
     IEnumerator Loading(int SceneIndex)
