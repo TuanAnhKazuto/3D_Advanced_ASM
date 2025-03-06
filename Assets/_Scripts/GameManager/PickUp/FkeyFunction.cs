@@ -26,11 +26,6 @@ public class FkeyFunction : MonoBehaviour
     [Header("Pick Up Key")]
     public bool isHasKey = false;
 
-    [Header("Read Note")]
-    public GameObject noteUI;
-    public GameObject noteObj;
-    bool isReadNote = false;
-
     private void Awake()
     {
         mainCam = Camera.main;
@@ -39,8 +34,6 @@ public class FkeyFunction : MonoBehaviour
     {
         fKey.SetActive(false);
         isShowFkey = false;
-        noteUI.SetActive(false);
-
         combinedLayerMask = layerMaskP250 | keyLayerMask | doorInOpenScene | notePaper;
     }
 
