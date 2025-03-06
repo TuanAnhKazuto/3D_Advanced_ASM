@@ -1,10 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/_Scenes/EndScene.unity.meta
-guid: 7023cdd8e13f7b8488a69f3cbb28b200
-========
-guid: 10b4cb1926f005a4294d5f21a53b00ea
+guid: 6a834669c5c06b446bb4e8b893719823
 folderAsset: yes
->>>>>>>> main:Assets/_Scripts/GameManager/PickUp.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 3471671735365132721}
   - component: {fileID: 1691266200339056193}
   - component: {fileID: 6773071397291590891}
-  - component: {fileID: 3338729493643335349}
+  - component: {fileID: 3271239850880730305}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -268,7 +268,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3338729493643335349
+--- !u!114 &3271239850880730305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,11 +277,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848405579587928919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb181f59d1f65b14698331e0f4919503, type: 3}
+  m_Script: {fileID: 11500000, guid: 288525122c8b938449dd2fd83b7c441b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  winLose: {fileID: 0}
+  playerCamera: {fileID: 2752689857069156134}
+  raycastRange: 3
+  Panelnote: {fileID: 0}
 --- !u!1 &2036230333457480977
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2243747920643988521}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 605e9f9a898bba741ab1ab2a5295c5bb, type: 3}
   m_Name: 
@@ -422,7 +423,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.36717632, g: 0.42964676, b: 0.48317614, a: 0.6}
+  m_BackGroundColor: {r: 0.39735302, g: 0.46529418, b: 0.52294123, a: 0.6}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -953,7 +954,7 @@ MonoBehaviour:
   damage: 15
   range: 100
   fireRate: 15
-  fireSpeed: 5
+  fireSpeed: 3
   impactForce: 30
   maxAmmo: 18
   currenAmmo: 0
