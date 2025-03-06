@@ -11,6 +11,7 @@ TagManager:
   - BulletHole
   - Gun
   - EnemyDamageZone
+  - Note
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Player
   - P250
   - Key
-  - Door
   - FirstAid
+  - Door
   - 
   - 
   - 

@@ -1,5 +1,4 @@
-﻿﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class DoorTrigger : LoadingLevel
 {
@@ -15,10 +14,7 @@ public class DoorTrigger : LoadingLevel
         base.Start();
         information.SetActive(false);
     }
-    //public LowPickUpItem lowPickUpItem;
-    //public GameObject information;
 
-    //public Animator inforAnim;
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -36,6 +32,7 @@ public class DoorTrigger : LoadingLevel
                     Invoke(nameof(CloseInformation), 1f);
                 }
             }
+
         }
     }
 
@@ -47,10 +44,8 @@ public class DoorTrigger : LoadingLevel
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-            if (other.gameObject.CompareTag("Player"))
-            {
-                LoadLevel();
-                fkeyFunction.HideFkeyBase();
-            }
+        {
+            fkeyFunction.HideFkeyBase();
+        }
     }
 }
