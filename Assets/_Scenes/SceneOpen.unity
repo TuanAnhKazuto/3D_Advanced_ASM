@@ -4550,7 +4550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 837549287061602617, guid: 1bc51ece81c116f45a910492b4fc8589, type: 3}
       propertyPath: m_TagString
-      value: Note
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3713516173521718527, guid: 1bc51ece81c116f45a910492b4fc8589, type: 3}
       propertyPath: m_Name
@@ -20751,7 +20751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288525122c8b938449dd2fd83b7c441b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 2160475952792345293}
+  playerCamera: {fileID: 2752689856546792546}
   raycastRange: 3
   Panelnote: {fileID: 1177240216}
 --- !u!1001 &6797937317090379778
