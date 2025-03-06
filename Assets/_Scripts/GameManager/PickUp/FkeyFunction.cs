@@ -32,7 +32,6 @@ public class FkeyFunction : MonoBehaviour
     }
     private void Start()
     {
-        p250Obj.SetActive(false);
         fKey.SetActive(false);
         isShowFkey = false;
 

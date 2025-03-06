@@ -2120,6 +2120,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3734165065619868706}
     m_Modifications:
+    - target: {fileID: 4002166662210333718, guid: f32a1f0e499ed324ab8fc41210fb4321, type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943016418445906659, guid: f32a1f0e499ed324ab8fc41210fb4321, type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7283454634012673266, guid: f32a1f0e499ed324ab8fc41210fb4321, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2163,6 +2171,10 @@ PrefabInstance:
     - target: {fileID: 8796073712958326812, guid: f32a1f0e499ed324ab8fc41210fb4321, type: 3}
       propertyPath: m_Name
       value: Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075010056575791842, guid: f32a1f0e499ed324ab8fc41210fb4321, type: 3}
+      propertyPath: MaxDistance
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
