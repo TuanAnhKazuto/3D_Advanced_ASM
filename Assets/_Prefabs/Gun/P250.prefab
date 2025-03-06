@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8054196204829804665}
   - component: {fileID: 1380464597386150586}
   - component: {fileID: 6561140089457523712}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8301235541117068889}
   - component: {fileID: 6834996128129500152}
   - component: {fileID: 1772780522748746390}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6461009309009268222}
   - component: {fileID: 5722125634934540115}
   - component: {fileID: 922396663500699018}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_Receiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1198672345902552567}
   - component: {fileID: 827109021939878500}
   - component: {fileID: 8733962474735431352}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4964105653131963888}
   - component: {fileID: 750322275600882239}
   - component: {fileID: 5578198203445923775}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_BarrelGuard.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 6718499747419185236}
   - component: {fileID: 8442717894615377145}
   - component: {fileID: 7039949419026370282}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_BarrelGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,9 +508,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5046528016907958030}
   - component: {fileID: 8835117775893594138}
-  - component: {fileID: 5245608595678252301}
+  - component: {fileID: 6806556598433583773}
   - component: {fileID: 845456820445186955}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: P250
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5245608595678252301
+--- !u!114 &6806556598433583773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5567309863734390196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1102d1e9aedd3af4fae674108af7e8a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f876b8bb090fc94b9c4d946285eb7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
@@ -578,7 +578,7 @@ MonoBehaviour:
   fireRate: 15
   fireSpeed: 5
   impactForce: 30
-  maxAmmo: 18
+  maxAmmo: 10
   currenAmmo: 0
   ammoCountText: {fileID: 0}
   reloadTime: 1
@@ -589,7 +589,7 @@ MonoBehaviour:
   impactEffect: {fileID: 5238538877814813142, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   bulletHole: {fileID: 100000, guid: 0cbc67bd61063af4e904364139f35b5d, type: 3}
   animator: {fileID: 0}
-  fireSound: {fileID: 0}
+  fireSound: {fileID: 845456820445186955}
 --- !u!82 &845456820445186955
 AudioSource:
   m_ObjectHideFlags: 0
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 2993696556464330562}
   - component: {fileID: 380431295196544468}
   - component: {fileID: 1518264767903642989}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pistol_F_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,10 +841,6 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3515071930650600478, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 6725371519831039651, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -853,14 +849,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MuzzleFlash
       objectReference: {fileID: 0}
-    - target: {fileID: 6980259576133684760, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7222628775867560472, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 7520814639884122992, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -868,14 +856,6 @@ PrefabInstance:
     - target: {fileID: 7980029976762078213, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
       propertyPath: playOnAwake
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8678474555929038593, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8739346576828255726, guid: 1f58a1dea6bbd9347843e4935585e6a2, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

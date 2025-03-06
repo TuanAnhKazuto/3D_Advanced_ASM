@@ -43,7 +43,6 @@ public class FkeyFunction : MonoBehaviour
         ShowFkey();
         P250PickUp();
         KeyPickUp();
-        OpenDoorInSceneOpen();
     }
 
     public void ShowFkey()
@@ -102,6 +101,7 @@ public class FkeyFunction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && isShowFkey)
             {
+                Destroy(hit.transform.gameObject);
                 HideFkeyBase();
             }
         }
