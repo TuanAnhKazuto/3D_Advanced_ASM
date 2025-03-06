@@ -16,6 +16,7 @@ public class FkeyFunction : MonoBehaviour
     public LayerMask keyLayerMask;
     public LayerMask firstAid;
     public LayerMask doorInOpenScene;
+    public LayerMask notePaper;
 
     [Header("Pick Up P250")]
     [Tooltip("It's in Hierachy: Player => Main Camera => Gun => P250")]
@@ -25,6 +26,10 @@ public class FkeyFunction : MonoBehaviour
     [Header("Pick Up Key")]
     public bool isHasKey = false;
 
+    [Header("Read Note")]
+    public GameObject noteUI;
+    public GameObject noteObj;
+    bool isReadNote = false;
 
     private void Awake()
     {
@@ -34,8 +39,9 @@ public class FkeyFunction : MonoBehaviour
     {
         fKey.SetActive(false);
         isShowFkey = false;
+        noteUI.SetActive(false);
 
-        combinedLayerMask = layerMaskP250 | keyLayerMask | doorInOpenScene;
+        combinedLayerMask = layerMaskP250 | keyLayerMask | doorInOpenScene | notePaper;
     }
 
     private void Update()
