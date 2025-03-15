@@ -381,6 +381,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1621919195277267768, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
   m_PrefabInstance: {fileID: 2737350775388727682}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &965903108 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8325671724106640935, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+  m_PrefabInstance: {fileID: 9102866537018379674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1156090965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2623,6 +2628,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1343827721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7707649273275343253, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+  m_PrefabInstance: {fileID: 2737350775388727682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1414293617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6595324502468023146, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
@@ -2707,6 +2717,11 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
+--- !u!198 &1765661038 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 457460404647956012, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+  m_PrefabInstance: {fileID: 9102866537018379674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1790960582
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -4719,6 +4734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2d3aceb2e6c5f498c4c64c902a74f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2032541851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2951221536049491426, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+  m_PrefabInstance: {fileID: 2737350775388727682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2051601764
 Mesh:
   m_ObjectHideFlags: 0
@@ -4919,6 +4939,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2010065724}
+    - target: {fileID: 2951221536049491426, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3000411972976848038, guid: f2c4d2e1a7d7e5449bfb6452c3997779, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5155,6 +5179,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8098696331134442900, guid: 74687c8ab426ba641b6bbaa361c065a9, type: 3}
+      propertyPath: fKey
+      value: 
+      objectReference: {fileID: 1343827721}
+    - target: {fileID: 8098696331134442900, guid: 74687c8ab426ba641b6bbaa361c065a9, type: 3}
+      propertyPath: p250Obj
+      value: 
+      objectReference: {fileID: 1343827721}
+    - target: {fileID: 8098696331134442900, guid: 74687c8ab426ba641b6bbaa361c065a9, type: 3}
+      propertyPath: subArmUI
+      value: 
+      objectReference: {fileID: 2032541851}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5361,6 +5397,14 @@ PrefabInstance:
       propertyPath: fireSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6065022604907557697, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 1765661038}
+    - target: {fileID: 8828149093984745241, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 965903108}
     - target: {fileID: 9073246576659084346, guid: d8dc1f4ac8c5df1429fa203fdb175775, type: 3}
       propertyPath: m_Name
       value: M4A1MuzzleFlash

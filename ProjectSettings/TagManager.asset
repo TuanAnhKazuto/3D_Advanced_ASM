@@ -12,6 +12,7 @@ TagManager:
   - Gun
   - EnemyDamageZone
   - Note
+  - Tenkoku
   layers:
   - Default
   - TransparentFX
