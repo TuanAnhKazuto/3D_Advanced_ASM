@@ -14,7 +14,7 @@ public class PlayerSpawner : SimulationBehaviour, IPlayerJoined
         if (player == Runner.LocalPlayer)
         {
             //tao nhan vat o vi tri (0,1,0)
-            var position = new Vector3(0,1,0);
+            var position = new Vector3(45,1,45);
             //spawn nhan vat o vi tri nay
             Runner.Spawn(PlayerPrefab, position, Quaternion.identity);
         }
